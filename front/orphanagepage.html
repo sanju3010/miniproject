@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orphanage Dashboard - Post Needs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      padding: 10px;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Post Your Orphanage Needs</h2>
+    <form id="needsForm">
+      <label for="needTitle">Select Need</label>
+      <select id="needTitle" name="needTitle" required>
+        <option value="" disabled selected>Select an orphanage need</option>
+        <option value="Food">Food</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Toys">Toys</option>
+        <option value="Books">Books</option>
+        <option value="Medical Supplies">Medical Supplies</option>
+      </select>
+
+      <label for="needDescription">Need Description</label>
+      <textarea id="needDescription" name="needDescription" rows="4" placeholder="Describe the need" required></textarea>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" required>
+
+      <input type="submit" value="Post Need">
+    </form>
+  </div>
+
+  <script>
+    // Handle form submission
+    document.getElementById('needsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get the values from the form
+      const title = document.getElementById('needTitle').value;
+      const description = document.getElementById('needDescription').value;
+      const quantity = document.getElementById('quantity').value;
+
+      // Create an object to store the need
+      const need = { title, description, quantity };
+
+      // Get existing needs from local storage or create an empty array
+      let needs = JSON.parse(localStorage.getItem('orphanageNeeds')) || [];
+
+      // Add the new need to the array
+      needs.push(need);
+
+      // Save the updated array to local storage
+      localStorage.setItem('orphanageNeeds', JSON.stringify(needs));
+
+      // Clear the form
+      document.getElementById('needsForm').reset();
+
+      alert('Need posted successfully!');
+    });
+  </script>
+</body>
+</html>

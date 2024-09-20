@@ -1,0 +1,78 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.illustration-container {
+    background-color: #f4f5f7;
+    height: 100%; /* Full height for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration-container img {
+    max-height: 400px;
+    max-width: 100%; /* Make the image responsive */
+    object-fit: contain; /* Ensure it scales properly */
+}
+
+.login-form {
+    background-color: white;
+}
+
+.form-control {
+    border-radius: 30px;
+    height: 45px;
+    padding-left: 20px;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Spacing below the logo */
+}
+
+.btn-primary {
+    background-color: #ff5722;
+    border: none;
+    border-radius: 30px;
+    height: 45px;
+}
+
+a {
+    font-size: 14px;
+    color: #ff5722;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f4f5f7;
+    color: #333;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon:hover {
+    color: #fff;
+    background-color: black;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
